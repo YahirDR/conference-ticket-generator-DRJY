@@ -79,16 +79,16 @@ body {
 
         /* IMAGEN 1:
            arriba a la derecha */
-        top right,
+        top 50px right,
 
-        /* IMAGEN 2:
+        /* IMAGEN 2 (doble circulo cruzado):
            abajo a la izquierda */
-        bottom left,
+        bottom  left,
 
         /* IMAGEN 3:
            5% desde la izquierda
            55% desde arriba */
-        5% 55%,
+        top -30px left 50px,
 
         /* IMAGEN 4:
            centrada */
@@ -110,15 +110,15 @@ body {
 
         /* IMAGEN 1:
            ancho de 300px */
-        300px,
+        200px,
 
         /* IMAGEN 2:
            ancho de 700px */
-        700px,
+        630px,
 
         /* IMAGEN 3:
            ancho de 180px */
-        180px,
+        100px,
 
         /* IMAGEN 4:
            ocupa todo el contenedor */
