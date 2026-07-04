@@ -5,38 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <!-- link de fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- link de estilos CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
   <title>Frontend Mentor | Conference ticket generator</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <!-- Inicio de Form  -->
+<form id="ticket_form">
+  <!-- Imagen Logo -->
+  <img src="assets/images/logo-full.svg" alt="Conferencia Logo">
+  
+  <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
 
-  <!-- Form starts -->
+  <h2>Secure your spot at next year's biggest coding conference.</h2>
+  <!-- Área del Input pra subir el avatar -->
+  <label>Upload Avatar</label>  
+  <div class="avatarContainerUpload" id="avatarContainer">
 
-  Your Journey to Coding Conf 2025 Starts Here!
+    <div class="imgUpload">
+      <img src="assets/images/icon-upload.svg" alt="Avatar upload" id="uploadedImage">
+      <P class="indicacion-texto">Drag and drop or click to upload</P>
+    </div>
 
-  Secure your spot at next year's biggest coding conference.
+    <p class="ayuda-texto" id="AyudaTextoMensaje">Upload your photo (JPG or PNG, max size: 500KB).</p>
+    <!-- OCULTAR EL INPUT -->
+    <input type="file" id="getFile"  accept=".jpg, .jpeg, .png" required>
 
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
+  </div>
+  <!-- Fin del área del input--->
+  <!-- Zona para subir los datos del usuario -->
+  <label for="fullName"></label>Full Name</label>
+  <input 
+    type="text" 
+    id="fullName" 
+    name="fullName" 
+    required
+  >
 
-  Full Name
+  <label for="email">Email Address</label>
+  <input 
+    type="email" 
+    id="email" 
+    placeholder="example@email.com"
+    class="modern-input"
+    required
+  >
 
-  Email Address
-  example@email.com
-
-  GitHub Username
-  @yourusername
-
-  Generate My Ticket
-
-  <!-- Form ends -->
+  <label for="githubUsername">GitHub Username</label>
+  <input 
+    type="text" 
+    id="githubUsername" 
+    placeholder="@yourusername"
+    class="modern-input"
+    required
+  >
+  <button type="submit" id="generateTicketButton">Generate My Ticket</button>
+  
+</form>
+  <!-- Final de Form -->
 
   <!-- Generated tickets starts -->
 
