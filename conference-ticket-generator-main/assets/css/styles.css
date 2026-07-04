@@ -1,9 +1,3 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #280893c4;  /*ELIMINAR LUEGO*/
-    font-family: 'Inconsolata', monospace;
-}
 /* ----- ROOT VARIABLES ----- */
 :root {
     /* ================= NEUTRALES ================= */
@@ -20,7 +14,120 @@ body{
     /* ================= GRADIENTE ================= */
     --gradient-text: linear-gradient(135deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 }
+body {
+    /* Hace que el body tenga al menos la altura completa de la ventana */
+    min-height: 100vh;
 
+    /* ==================================================
+        IMÁGENES DE FONDO
+        ==================================================
+        IMPORTANTE:
+        La primera imagen queda ENCIMA.
+        La última imagen queda hasta el FONDO.
+    */
+    background-image:
+
+        /* Imagen 1 (capa superior) */
+        url('../images/pattern-squiggly-line-top.svg'),
+
+        /* Imagen 2 */
+        url('../images/pattern-squiggly-line-bottom-desktop.svg'),
+
+        /* Imagen 3 */
+        url('../images/pattern-circle.svg'),
+
+        /* Imagen 4 */
+        url('../images/pattern-lines.svg'),
+
+        /* Imagen 5 (capa inferior) */
+        url('../images/background-desktop.png');
+
+
+
+    /* ==================================================
+        REPETICIÓN DE CADA IMAGEN
+        ==================================================
+        El primer no-repeat corresponde a la imagen 1,
+        el segundo a la imagen 2, etc.
+    */
+    background-repeat:
+
+        /* IMAGEN 1*/
+        no-repeat,
+
+        /* IMAGEN 2*/
+        no-repeat,
+
+        /* IMAGEN 3 */
+        no-repeat,
+
+        /* IMAGEN 4 */
+        no-repeat,
+
+        /* IMAGEN 5 */
+        no-repeat;
+
+
+
+    /* ==================================================
+       POSICIÓN DE CADA IMAGEN
+       ==================================================
+       Cada posición corresponde a la imagen ubicada
+       en el mismo número de la lista anterior.
+    */
+    background-position:
+
+        /* IMAGEN 1:
+           arriba a la derecha */
+        top right,
+
+        /* IMAGEN 2:
+           abajo a la izquierda */
+        bottom left,
+
+        /* IMAGEN 3:
+           5% desde la izquierda
+           55% desde arriba */
+        5% 55%,
+
+        /* IMAGEN 4:
+           centrada */
+        center,
+
+        /* IMAGEN 5:
+           centrada */
+        center;
+
+
+
+    /* ==================================================
+       TAMAÑO DE CADA IMAGEN
+       ==================================================
+       Cada tamaño corresponde a la imagen con
+       el mismo índice.
+    */
+    background-size:
+
+        /* IMAGEN 1:
+           ancho de 300px */
+        300px,
+
+        /* IMAGEN 2:
+           ancho de 700px */
+        700px,
+
+        /* IMAGEN 3:
+           ancho de 180px */
+        180px,
+
+        /* IMAGEN 4:
+           ocupa todo el contenedor */
+        cover,
+
+        /* IMAGEN 5:
+           ocupa todo el contenedor */
+        cover;
+}
 /* ----- ESTILOS PARA lOGO ----- */
 .logo{
     width: 150px;
