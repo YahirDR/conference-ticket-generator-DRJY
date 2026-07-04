@@ -15,9 +15,11 @@
     --gradient-text: linear-gradient(135deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 }
 body {
+    /*FUENTE DEL PROYECTO*/
+    font-family: 'Inconsolata', monospace;
     /* Hace que el body tenga al menos la altura completa de la ventana */
     min-height: 100vh;
-
+    
     /* ==================================================
         IMÁGENES DE FONDO
         ==================================================
@@ -156,8 +158,48 @@ body {
 label{
     font-size: 20px;
 }
+/* ----- ESTILOS PARA SUBIR LA IMAGEN (AVATAR) ----- */
+.titleUpload{
+    color: var(--neutral-0);
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
 .avatarContainerUpload{
+    color: var(--neutral-300);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     border: 1px solid #ee0707c4; /*ELIMINAR LUEGO*/
+}
+.imgUpload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;
+    gap: 1rem;                
+    text-align: center;
+    border: 1px solid var(--neutral-500);
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--neutral-700);
+    cursor: pointer;
+}
+
+.inputFile{
+    display: none;
+}
+.help{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.help p{
+    color: var(--neutral-300);
+    font-size: 10px;
+    font-weight: 400;
 }

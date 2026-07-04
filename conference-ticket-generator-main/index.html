@@ -23,23 +23,25 @@
 
   <h2 class="textSecure">Secure your spot at next year's biggest coding conference.</h2>
   <!-- Área del Input pra subir el avatar -->
-  <label>Upload Avatar</label>  
+  <label class="titleUpload">Upload Avatar</label>  
   <div class="avatarContainerUpload" id="avatarContainer">
 
     <div class="imgUpload">
       <img src="assets/images/icon-upload.svg" alt="Avatar upload" id="uploadedImage">
-      <P class="indicacion-texto">Drag and drop or click to upload</P>
     </div>
-
-    <p class="ayuda-texto" id="AyudaTextoMensaje">Upload your photo (JPG or PNG, max size: 500KB).</p>
+    <P class="indicacion-texto">Drag and drop or click to upload</P>
     <!-- OCULTAR EL INPUT -->
     <input 
       type="file" 
+      class="inputFile"
       id="getFile"  
       accept=".jpg, .jpeg, .png" 
       required
     >
-
+  </div>
+  <div class="help" id="ayuda">
+    <img src="assets/images/icon-info.svg" alt="Error icon" class="img">
+    <p class="helpText" id="AyudaTextoMensaje">Upload your photo (JPG or PNG, max size: 500KB).</p>
   </div>
   <!-- Fin del área del input--->
   <!-- Zona para subir los datos del usuario -->
