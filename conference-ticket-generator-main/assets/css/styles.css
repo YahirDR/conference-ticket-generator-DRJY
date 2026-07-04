@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #000000c4;  /*ELIMINAR LUEGO*/
+    background-color: #280893c4;  /*ELIMINAR LUEGO*/
     font-family: 'Inconsolata', monospace;
 }
 /* ----- ROOT VARIABLES ----- */
@@ -25,8 +25,7 @@ body{
 .logo{
     width: 150px;
     height: auto;
-    margin-bottom: 25px;
-    margin-top: 20px;    
+    margin-top: 25px;    
     margin-left: 40%;
 }
 /* ----- ESTILOS PARA TITULOS DE LA PAGINA ----- */
@@ -38,6 +37,13 @@ body{
     /* Sirve para dar espaciado entre líneas */
     line-height: 1.1; 
     
+}
+.textSecure{
+    color: var(--neutral-500);
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -15px;
 }
 /*De acuerdo a la guia de estilos los label deben tener un tamaño de 20px*/
 label{
