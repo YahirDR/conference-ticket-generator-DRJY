@@ -10,14 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
   <!-- link de estilos CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
   <title>Frontend Mentor | Conference ticket generator</title>
 </head>
 <body>
   <!-- Inicio de Form  -->
 <form id="ticket_form">
   <!-- Imagen Logo -->
-  <img src="assets/images/logo-full.svg" alt="Conferencia Logo">
+  <img src="assets/images/logo-full.svg" alt="Logo condig conf" class="logo">
   
   <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
 
@@ -33,7 +33,12 @@
 
     <p class="ayuda-texto" id="AyudaTextoMensaje">Upload your photo (JPG or PNG, max size: 500KB).</p>
     <!-- OCULTAR EL INPUT -->
-    <input type="file" id="getFile"  accept=".jpg, .jpeg, .png" required>
+    <input 
+      type="file" 
+      id="getFile"  
+      accept=".jpg, .jpeg, .png" 
+      required
+    >
 
   </div>
   <!-- Fin del área del input--->

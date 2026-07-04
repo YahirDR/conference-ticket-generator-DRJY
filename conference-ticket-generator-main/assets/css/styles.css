@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #000000c4;  /*ELIMINAR LUEGO*/
+    font-family: 'Inconsolata', monospace;
+}
+.logo{
+    width: 150px;
+    height: auto;
+    margin-bottom: 25px;
+    margin-top: 20px;    
+    margin-left: 40%;
+}
+
+.avatarContainerUpload{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ee0707c4; /*ELIMINAR LUEGO*/
+}
