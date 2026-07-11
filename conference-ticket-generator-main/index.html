@@ -25,9 +25,9 @@
   <!-- Área del Input pra subir el avatar -->
   <label class="titleUpload">Upload Avatar</label>  
   <div class="avatarContainerUpload" id="avatarContainer">
-
+    <!-- Imagen de carga del avatar -->
     <div class="imgUpload">
-      <img src="assets/images/icon-upload.svg" alt="Avatar upload" id="uploadedImage">
+      <img src="assets/images/icon-upload.svg" class="imgUploadUser" alt="Avatar upload" id="uploadedImage">
     </div>
     <P class="indicacion-texto">Drag and drop or click to upload</P>
     <!-- OCULTAR EL INPUT -->
@@ -45,45 +45,47 @@
   </div>
   <!-- Fin del área del input--->
   <!-- Zona para subir los datos del usuario -->
-  <label for="fullName"></label>Full Name</label>
-  <input 
-    type="text" 
-    id="fullName" 
-    name="fullName" 
-    required
-  >
+  <div class="dataUser">
+    <label for="fullName"></label>Full Name</label>
+    <input 
+      type="text" 
+      id="fullName" 
+      name="fullName"
+      class="modernInput" 
+      required
+    >
+    <label  for="email">Email Address</label>
+    <input 
+      type="email" 
+      id="email" 
+      placeholder="example@email.com"
+      class="modernInput"
+      required
+    >
 
-  <label for="email">Email Address</label>
-  <input 
-    type="email" 
-    id="email" 
-    placeholder="example@email.com"
-    class="modern-input"
-    required
-  >
-
-  <label for="githubUsername">GitHub Username</label>
-  <input 
-    type="text" 
-    id="githubUsername" 
-    placeholder="@yourusername"
-    class="modern-input"
-    required
-  >
-  <button type="submit" id="generateTicketButton">Generate My Ticket</button>
-  
+    <label for="githubUsername">GitHub Username</label>
+    <input 
+      type="text" 
+      id="githubUsername" 
+      placeholder="@yourusername"
+      class="modernInput"
+      required
+    >
+    <button class="btnTicket" type="submit" id="generateTicketButton">Generate My Ticket</button>
+  </div>
 </form>
   <!-- Final de Form -->
 
-  <!-- Generated tickets starts -->
+  <!-- Generar tickets -->
+  <div class="ticketContainer">
+    <h1 class="txtCongrats">Congrats, <p  class="userName" id="userName"></p>! Your ticket is ready. </h1>
+    We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
+    
+    <img src="assets/images/pattern-ticket.svg" alt="ticket" class="ticketUser">
 
-  Congrats, <!-- Full Name -->! Your ticket is ready.
-
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
-
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
-
+    Coding Conf
+    Jan 31, 2025 / Austin, TX
+  </div>
   <!-- Generated tickets ends -->
   
   <footer class="attribution">
