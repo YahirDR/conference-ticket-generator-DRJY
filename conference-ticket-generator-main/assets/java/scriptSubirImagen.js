@@ -139,10 +139,7 @@ form.addEventListener("submit", function (e) {
 
 function generarTicket() {
 
-    if (!ticketData.fullName || !ticketData.email || !ticketData.github) {
-        alert("Por favor completa todos los campos obligatorios.");
-        return;
-    }
+
 
     // Llenar el ticket
     document.getElementById('userName').textContent = ticketData.fullName;
