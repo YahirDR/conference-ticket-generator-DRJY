@@ -1,6 +1,14 @@
 // ======================
-// ELEMENTOS DEL DOM
+// ELEMENTOS IMPORTANTES
 // ======================
+const ticketData = {
+    avatar: "",
+    fullName: "",
+    email: "",
+    github: ""
+};
+
+const form = document.getElementById("ticket_form");
 const avatarContainer = document.getElementById("avatarContainer");
 const inputFile = document.getElementById("getFile");
 const uploadedImage = document.getElementById("uploadedImage");
@@ -12,35 +20,26 @@ const btnChange = document.getElementById("btnChange");
 
 const uploadText = document.getElementById("uploadText");
 
+const fullNameInput = document.getElementById("fullName");
+const emailInput = document.getElementById("emailUser");
+const githubInput = document.getElementById("githubUsername");
+
 // Imagen por defecto
 const defaultImage = "assets/images/icon-upload.svg";
 
+// ======================
+// FUNCIONES DE AVATAR
+// ======================
 function cambiarEstadoAvatar(tieneImagen) {
-
     if (tieneImagen) {
-
-        // Ocultar el mensaje
         uploadText.style.display = "none";
-
-        // Mostrar los botones
         btnContainer.style.display = "flex";
-
     } else {
-
-        // Mostrar nuevamente el mensaje
         uploadText.style.display = "block";
-
-        // Ocultar botones
         btnContainer.style.display = "none";
-
-        // Restaurar imagen por defecto
         uploadedImage.src = defaultImage;
-
-        // Limpiar el input
         inputFile.value = "";
-
     }
-
 }
 
 // ======================
@@ -54,13 +53,8 @@ avatarContainer.addEventListener("click", () => {
 // SELECCIONAR IMAGEN
 // ======================
 inputFile.addEventListener("change", (e) => {
-
     const file = e.target.files[0];
-
-    if (file) {
-        validarImagen(file);
-    }
-
+    if (file) validarImagen(file);
 });
 
 // ======================
@@ -76,93 +70,101 @@ avatarContainer.addEventListener("dragleave", () => {
 });
 
 avatarContainer.addEventListener("drop", (e) => {
-
     e.preventDefault();
-
     avatarContainer.classList.remove("dragging");
-
     const file = e.dataTransfer.files[0];
-
-    if (file) {
-        validarImagen(file);
-    }
-
+    if (file) validarImagen(file);
 });
 
 // ======================
 // VALIDAR IMAGEN
 // ======================
 function validarImagen(file) {
-
-    const tiposPermitidos = [
-        "image/jpeg",
-        "image/png"
-    ];
+    const tiposPermitidos = ["image/jpeg", "image/png"];
 
     if (!tiposPermitidos.includes(file.type)) {
-
-        helpText.textContent =
-            "Only JPG and PNG files are allowed.";
-
+        helpText.textContent = "Only JPG and PNG files are allowed.";
         return;
     }
 
     if (file.size > 500 * 1024) {
-
-        helpText.textContent =
-            "File too large. Max size is 500KB.";
-
+        helpText.textContent = "File too large. Max size is 500KB.";
         return;
     }
 
-    // Restaurar mensaje
-    helpText.textContent =
-        "Upload your photo (JPG or PNG, max size: 500KB).";
-
+    helpText.textContent = "Upload your photo (JPG or PNG, max size: 500KB).";
     mostrarImagen(file);
-
 }
 
 // ======================
 // MOSTRAR IMAGEN
 // ======================
 function mostrarImagen(file) {
-
     const reader = new FileReader();
-
-    reader.onload = function(e){
-
+    reader.onload = function (e) {
         uploadedImage.src = e.target.result;
-
+        ticketData.avatar = e.target.result;   // ← Guardamos la imagen
         cambiarEstadoAvatar(true);
-
-    }
-
+    };
     reader.readAsDataURL(file);
-
 }
 
 // ======================
-// CAMBIAR IMAGEN
+// BOTONES CAMBIAR / ELIMINAR
 // ======================
 btnChange.addEventListener("click", (e) => {
-
     e.stopPropagation();
-
     inputFile.click();
-
 });
 
-// ======================
-// ELIMINAR IMAGEN
-// ======================
 btnRemove.addEventListener("click", (e) => {
-
     e.stopPropagation();
-
     cambiarEstadoAvatar(false);
-
 });
 
-//MOSTRAR BOTON DE REMOVER Y CAMBIAR IMAGEN SI YA HAY UNA IMAGEN CARGADA
+// ======================
+// GENERAR TICKET
+// ======================
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Guardar datos del formulario
+    ticketData.fullName = fullNameInput.value.trim();
+    ticketData.email = emailInput.value.trim();
+    ticketData.github = githubInput.value.trim();
+
+    // Llamar a la función que genera el ticket
+    generarTicket();
+});
+
+function generarTicket() {
+
+    if (!ticketData.fullName || !ticketData.email || !ticketData.github) {
+        alert("Por favor completa todos los campos obligatorios.");
+        return;
+    }
+
+    // Llenar el ticket
+    document.getElementById('userName').textContent = ticketData.fullName;
+    document.getElementById('userEmail').textContent = ticketData.email;
+    document.getElementById('ticketUserName').textContent = ticketData.fullName;
+
+    let githubClean = ticketData.github.trim();
+    if (githubClean.startsWith('@')) githubClean = githubClean.substring(1);
+    document.getElementById('ticketGithub').textContent = githubClean;
+
+    // Avatar
+    const ticketAvatar = document.getElementById('ticketAvatar');
+    ticketAvatar.src = ticketData.avatar || defaultImage;
+
+    // Número de ticket
+    const ticketNum = Math.floor(10000 + Math.random() * 90000);
+    document.getElementById('ticketNumber').textContent = `#${ticketNum}`;
+
+    // Mostrar ticket y ocultar formulario
+    form.style.display = 'none';
+    document.getElementById('ticketContainer').style.display = 'flex';
+}
+
+// Inicializar estado del avatar
 cambiarEstadoAvatar(false);
