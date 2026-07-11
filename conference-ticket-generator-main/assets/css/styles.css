@@ -177,21 +177,20 @@ body {
     height: 150px;
     width: 450px;
 }
-.imgUpload {
+.imgUpload{
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;      
     justify-content: center;
-    gap: 1rem;                
-    text-align: center;
-    border: 1px solid var(--neutral-500);
-    width: 50px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: var(--neutral-700);
-    cursor: pointer;
+    align-items: center;
 }
-
+.imgUploadUser{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .inputFile{
     display: none;
 }
@@ -205,6 +204,30 @@ body {
     color: var(--neutral-300);
     font-size: 10px;
     font-weight: 400;
+}
+/*BOTONES PARA REMOVER Y CAMBIAR IMAGEN*/
+.btnContainer{
+    display:none;
+    gap: 10px;
+    margin-top: 10px;
+}
+.btnRemove{
+    background-color: var(--neutral-700);
+    color: var(--neutral-0);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.btnChange{
+    background-color: var(--neutral-700);
+    color: var(--neutral-0);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 /*Estilos para  de datos de usuario*/
@@ -247,4 +270,10 @@ body {
     margin-top: 20px;
     color: var(--neutral-0);
     font-size: 15px;
+}
+.ticketUserFinal{
+    background-image: url('../images/pattern-ticket.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
