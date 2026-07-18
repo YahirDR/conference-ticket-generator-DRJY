@@ -287,41 +287,37 @@ body {
 }
 
 .ticket {
-    width: 520px;
+    width: min(100%, 520px);
     height: 280px;
-    background: 
-        linear-gradient(135deg, #2a1b4a 0%, #4a2c7d 100%),
-        url('../assets/images/pattern-ticket.svg');
-    background-blend-mode: overlay;
+    background-color: transparent;
+    background-image: url('../images/pattern-ticket.svg');
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    border-radius: 16px;
+    border-radius: 24px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     color: white;
     font-family: 'Inconsolata', monospace;
     display: flex;
     padding: 24px;
     box-sizing: border-box;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 280'%3E%3Crect x='1' y='1' width='518' height='278' rx='24' ry='24' fill='white'/%3E%3Ccircle cx='520' cy='32' r='22' fill='black'/%3E%3Ccircle cx='520' cy='248' r='22' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 280'%3E%3Crect x='1' y='1' width='518' height='278' rx='24' ry='24' fill='white'/%3E%3Ccircle cx='520' cy='32' r='22' fill='black'/%3E%3Ccircle cx='520' cy='248' r='22' fill='black'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
 }
 
-/* Perforación del lado derecho */
-.ticket::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 14px;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,0.25),
-        rgba(255,255,255,0.25) 4px,
-        transparent 4px,
-        transparent 12px
-    );
-    border-left: 2px dashed rgba(255,255,255,0.4);
+
+.ticket-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    flex: 1;
+    min-width: 0;
+    z-index: 1;
 }
 
 /* Logo del ticket */
