@@ -15,7 +15,7 @@
 </head>
 <body>
   <!-- Inicio de Form  -->
-<form id="ticket_form">
+<form id="ticket_form" novalidate>
   <!-- Imagen Logo -->
   <img src="assets/images/logo-full.svg" alt="Logo condig conf" class="logo">
   
@@ -67,6 +67,7 @@
       class="modernInput" 
       required
     >
+    <p class="fieldError" id="fullNameError" aria-live="polite"></p>
     <!-- Input para el correo electrónico -->
     <label  for="email">Email Address</label>
     <input 
@@ -76,6 +77,7 @@
       class="modernInput"
       required
     >
+    <p class="fieldError" id="emailError" aria-live="polite"></p>
     <!-- Input para el nombre de usuario de GitHub -->
     <label for="githubUsername">GitHub Username</label>
     <input 
@@ -85,12 +87,14 @@
       class="modernInput"
       required
     >
+    <p class="fieldError" id="githubError" aria-live="polite"></p>
     <!-- Botón para generar el ticket --> 
     <button class="btnTicket" 
     type="submit" 
     id="generateTicketButton">
     Generate My Ticket
     </button>
+    <p class="formError" id="formError" aria-live="polite"></p>
   </div>
 </form>
   <!-- Final de Form -->
@@ -125,6 +129,7 @@
         <div class="user-info">
           <h2 id="ticketUserName"></h2>
           <div class="github">
+            <img src="assets/images/icon-github.svg" alt="GitHub icon" class="github-icon">
             <span class="github-icon">@</span>
             <span id="ticketGithub"></span>
           </div>

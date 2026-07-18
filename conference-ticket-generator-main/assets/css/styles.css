@@ -111,15 +111,15 @@ body {
     background-size:
 
         /* IMAGEN 1:
-           ancho de 300px */
+           ancho de 200px */
         200px,
 
         /* IMAGEN 2:
-           ancho de 700px */
-        630px,
+           ancho de 580px */
+        580px,
 
         /* IMAGEN 3:
-           ancho de 180px */
+           ancho de 100px */
         100px,
 
         /* IMAGEN 4:
@@ -249,6 +249,31 @@ body {
     width: 440px;
     height: 20px;
     
+}
+.modernInput.input-error {
+    border-color: var(--orange-500);
+    box-shadow: 0 0 0 1px rgba(247, 122, 103, 0.35);
+}
+.avatarContainerUpload.avatar-error {
+    border-color: var(--orange-500);
+    box-shadow: 0 0 0 1px rgba(247, 122, 103, 0.35);
+}
+.helpError {
+    color: var(--orange-500) !important;
+}
+.formError {
+    min-height: 20px;
+    margin: 8px 0 0;
+    color: var(--orange-500);
+    font-size: 12px;
+    font-weight: 500;
+}
+.fieldError {
+    min-height: 16px;
+    margin: 6px 0 0;
+    color: var(--orange-500);
+    font-size: 11px;
+    font-weight: 500;
 }
 .btnTicket{
     background-color: var(--orange-500);
@@ -400,4 +425,232 @@ body {
     text-align: center;
     color: var(--neutral-300);
     margin-bottom: 20px;
+}
+/*Diseño responsivo para movil*/
+@media (max-width: 768px) {
+    body {
+        background-size: 180px, 420px, 76px, cover, cover;
+        background-position: top 24px right -60px, bottom left -140px, top 24px left -30px, center, center;
+    }
+
+    .logo {
+        width: 128px;
+        margin: 20px auto 0;
+        display: block;
+    }
+
+    .textJourney {
+        font-size: 30px;
+        padding: 0 18px;
+        margin: 22px 0 10px;
+    }
+
+    .textSecure {
+        font-size: 15px;
+        padding: 0 22px;
+        margin: 0 0 26px;
+        line-height: 1.5;
+    }
+
+    .titleUpload,
+    .help,
+    .dataUser {
+        margin-left: 0;
+        width: min(100% - 32px, 440px);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .titleUpload {
+        text-align: left;
+        margin-top: 8px;
+        margin-bottom: 10px;
+    }
+
+    .avatarContainerUpload {
+        width: 100%;
+        height: 152px;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+
+    .help {
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .help p,
+    .formError,
+    .fieldError {
+        font-size: 11px;
+    }
+
+    .dataUser {
+        gap: 8px;
+    }
+
+    .dataUser label {
+        font-size: 14px;
+    }
+
+    .modernInput {
+        width: 100%;
+        height: 24px;
+        box-sizing: border-box;
+    }
+
+    .btnTicket {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 2px;
+    }
+
+    .formError {
+        margin-top: 4px;
+    }
+
+    .ticketContainer {
+        width: 100%;
+        padding: 0 16px 24px;
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+
+    .txtCongrats {
+        font-size: 24px;
+        padding: 0 8px;
+        line-height: 1.15;
+    }
+
+    .ticketEmail {
+        font-size: 15px;
+        padding: 0 10px;
+        line-height: 1.45;
+    }
+
+    .ticket {
+        width: min(100%, 360px);
+        height: auto;
+        aspect-ratio: 520 / 280;
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .ticket-content {
+        gap: 8px;
+        padding-right: 30px;
+    }
+
+    .logo-ticket {
+        font-size: 15px;
+        gap: 8px;
+        line-height: 1;
+    }
+
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .event-info {
+        margin-top: 2px;
+        font-size: 9px;
+        line-height: 1.2;
+    }
+
+    .user-section {
+        gap: 7px;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-width: 2px;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    .user-info {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .user-info h2 {
+        font-size: 12px;
+        margin-bottom: 2px;
+        line-height: 1.05;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .github {
+        font-size: 9px;
+        gap: 4px;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .github img.github-icon {
+        width: 10px;
+        height: 10px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .github span.github-icon {
+        font-size: 9px;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+
+    .ticket-number {
+        right: 2px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 420px) {
+    .textJourney {
+        font-size: 27px;
+        padding: 0 12px;
+    }
+
+    .txtCongrats {
+        font-size: 21px;
+    }
+
+    .ticketEmail {
+        font-size: 14px;
+    }
+
+    .logo-ticket {
+        font-size: 14px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .user-info h2 {
+        font-size: 11px;
+    }
+
+    .github img.github-icon {
+        width: 9px;
+        height: 9px;
+    }
+
+    .github span.github-icon {
+        font-size: 8px;
+    }
+
+    .github {
+        font-size: 8px;
+    }
 }

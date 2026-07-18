@@ -19,10 +19,14 @@ const btnRemove = document.getElementById("btnRemove");
 const btnChange = document.getElementById("btnChange");
 
 const uploadText = document.getElementById("uploadText");
+const formError = document.getElementById("formError");
 
 const fullNameInput = document.getElementById("fullName");
 const emailInput = document.getElementById("emailUser");
 const githubInput = document.getElementById("githubUsername");
+const fullNameError = document.getElementById("fullNameError");
+const emailError = document.getElementById("emailError");
+const githubError = document.getElementById("githubError");
 
 // Imagen por defecto
 const defaultImage = "assets/images/icon-upload.svg";
@@ -34,6 +38,8 @@ function cambiarEstadoAvatar(tieneImagen) {
     if (tieneImagen) {
         uploadText.style.display = "none";
         btnContainer.style.display = "flex";
+        avatarContainer.classList.remove("avatar-error");
+        helpText.classList.remove("helpError");
     } else {
         uploadText.style.display = "block";
         btnContainer.style.display = "none";
@@ -41,6 +47,39 @@ function cambiarEstadoAvatar(tieneImagen) {
         inputFile.value = "";
     }
 }
+
+function clearFieldErrors() {
+    formError.textContent = "";
+    fullNameError.textContent = "";
+    emailError.textContent = "";
+    githubError.textContent = "";
+    fullNameInput.classList.remove("input-error");
+    emailInput.classList.remove("input-error");
+    githubInput.classList.remove("input-error");
+    avatarContainer.classList.remove("avatar-error");
+    helpText.classList.remove("helpError");
+}
+
+fullNameInput.addEventListener("input", () => {
+    if (fullNameInput.value.trim()) {
+        fullNameError.textContent = "";
+        fullNameInput.classList.remove("input-error");
+    }
+});
+
+emailInput.addEventListener("input", () => {
+    if (emailInput.value.trim() && emailInput.checkValidity()) {
+        emailError.textContent = "";
+        emailInput.classList.remove("input-error");
+    }
+});
+
+githubInput.addEventListener("input", () => {
+    if (githubInput.value.trim()) {
+        githubError.textContent = "";
+        githubInput.classList.remove("input-error");
+    }
+});
 
 // ======================
 // ABRIR EXPLORADOR
@@ -84,15 +123,18 @@ function validarImagen(file) {
 
     if (!tiposPermitidos.includes(file.type)) {
         helpText.textContent = "Only JPG and PNG files are allowed.";
+        helpText.classList.add("helpError");
         return;
     }
 
     if (file.size > 500 * 1024) {
         helpText.textContent = "File too large. Max size is 500KB.";
+        helpText.classList.add("helpError");
         return;
     }
 
     helpText.textContent = "Upload your photo (JPG or PNG, max size: 500KB).";
+    helpText.classList.remove("helpError");
     mostrarImagen(file);
 }
 
@@ -128,10 +170,50 @@ btnRemove.addEventListener("click", (e) => {
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const fullName = fullNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const github = githubInput.value.trim();
+
+    clearFieldErrors();
+
+    let hasError = false;
+
+    if (!ticketData.avatar) {
+        helpText.textContent = "Please upload an avatar before generating your ticket.";
+        helpText.classList.add("helpError");
+        avatarContainer.classList.add("avatar-error");
+        hasError = true;
+    }
+
+    if (!fullName) {
+        fullNameInput.classList.add("input-error");
+        fullNameError.textContent = "Full name is required.";
+        hasError = true;
+    }
+
+    if (!email || !emailInput.checkValidity()) {
+        emailInput.classList.add("input-error");
+        emailError.textContent = !email
+            ? "Email address is required."
+            : "Please enter a valid email address.";
+        hasError = true;
+    }
+
+    if (!github) {
+        githubInput.classList.add("input-error");
+        githubError.textContent = "GitHub username is required.";
+        hasError = true;
+    }
+
+    if (hasError) {
+        formError.textContent = "Please complete the highlighted fields before generating your ticket.";
+        return;
+    }
+
     // Guardar datos del formulario
-    ticketData.fullName = fullNameInput.value.trim();
-    ticketData.email = emailInput.value.trim();
-    ticketData.github = githubInput.value.trim();
+    ticketData.fullName = fullName;
+    ticketData.email = email;
+    ticketData.github = github;
 
     // Llamar a la función que genera el ticket
     generarTicket();
