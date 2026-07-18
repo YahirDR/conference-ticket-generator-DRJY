@@ -163,7 +163,7 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 10px;
-    margin-left: 150px;
+    margin-left: 35%;
 }
 .avatarContainerUpload{
     color: var(--neutral-300);
@@ -173,7 +173,7 @@ body {
     justify-content: center;
     border: 2px dashed var(--neutral-500);
     border-radius: 8px; /* Opcional */
-    margin-left: 150px;
+    margin-left: 35%;
     height: 150px;
     width: 450px;
 }
@@ -198,7 +198,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: 150px;
+    margin-left: 35%;
 }
 .help p{
     color: var(--neutral-300);
@@ -234,9 +234,9 @@ body {
 .dataUser{
     display: flex;
     flex-direction: column;
-
+    
     gap: 10px;
-    margin-left: 150px;
+    margin-left: 35%;
     color: var(--neutral-0);
     font-size: 15px;
 }   
@@ -283,7 +283,7 @@ body {
     padding: 10px 20px;
     font-size: 15px;
     cursor: pointer;
-    margin-right: 150px;
+    
     width: 460px;
 }
 
