@@ -376,7 +376,7 @@ body {
 /* Número de ticket vertical */
 .ticket-number {
     position: absolute;
-    right: 22px;
+    right: 2px;
     top: 50%;
     transform: translateY(-50%) rotate(90deg);
     font-size: 23px;
